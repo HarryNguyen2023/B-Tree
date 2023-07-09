@@ -8,13 +8,15 @@ class BTree
     private:
     BTreeNode<T>* root;     // Root node of the tree
     int t;                  // Minimum degree of each node
+    long long size;
 
     public:
     BTree(int _t);
     void Traverse();
     bool searchTree(T data);
     void insertNode(T data);
-    int getSize();
+    long long getSize();
+    void delNode(T data);
 };
 
 // Define the class of the node of the B Tree
@@ -34,8 +36,7 @@ class BTreeNode
     bool searchTree(T data);
     void insertNode(T data);
     void splitChild(int num, BTreeNode* y);
-    int getSize();
-    void delNode(T data);
+    bool delNode(T data);
     void delFromLeaf(int index);
     void delFromNonLeaf(int index);
     T getPred(int index);
@@ -44,6 +45,7 @@ class BTreeNode
     void borrowFromPrev(int index);
     void borrowFromNext(int index);
     void merge(int index);
+    int findIndex(T key);
     // Declare the Btree as the friend class of this node class
     friend class BTree<T>;
 };
