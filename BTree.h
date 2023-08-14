@@ -1,3 +1,6 @@
+#ifndef B_TREE_H
+#define B_TREE_H
+
 template <class T>
 class BTreeNode;
 
@@ -50,3 +53,4 @@ class BTreeNode
     friend class BTree<T>;
 };
 
+#endif
